@@ -1,0 +1,90 @@
+@url=http://localhost:5000/api
+@json=Content-Type: application/json
+
+###
+get {{url}} 
+
+###Register
+post {{url}}/register
+{{json}}
+
+{
+    "username":"hshan2@myseneca.ca",
+    "password":"abcd"
+}
+###login
+post {{url}}/login
+{{json}}
+
+{
+    "username":"george.tsang@senecacollege.ca",
+    "password":"web322m1a"
+}
+###get profile
+GET {{url}}/profile
+Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZ2VvcmdlLnRzYW5nQHNlbmVjYWNvbGxlZ2UuY2EiLCJpYXQiOjE1OTIxNzQ4MDZ9.o4PhO7ov_YFHWT3wkqsyUQo-k_9uSzkNfFQg1l38MBI"
+
+###new login
+POST {{url}}/newlogin
+{{json}}
+
+{
+    "username":"Kyle"
+
+}
+
+###post
+GET {{url}}/posts
+Authorization: Bearer
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+eyJuYW1lIjoiS3lsZSIsImlhdCI6MTU5MjE4NTY3N30.
+DBzAM3dn9wAIASDsZxFwMmYyAiylw8F6MKVl7AcU_lk
+
+
+###check balance
+get {{url}}/checkBalance
+{{json}}
+
+{
+    "id":"1",
+    "type":"Saving"
+}
+
+###update balance
+post {{url}}/updateBalance
+{{json}}
+
+{
+    "id":"1",
+    //"type":"Saving",
+    "amount": 50
+
+}
+
+###open an account
+post {{url}}/new
+{{json}}
+
+{
+    "type":"Saving"
+
+}
+
+###new test
+post {{url}}/newtest
+{{json}}
+
+{
+    "accttype":"Saving"
+
+}
+
+###new testtt
+post {{url}}/newtesttt
+{{json}}
+
+{
+    "username":"george.tsang@senecacollege.ca",
+    "password":"web322m1a"
+
+}
