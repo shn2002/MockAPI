@@ -14,6 +14,21 @@ app.get('/profiles',cors(), (req, res, next) => {
     res.json(profiles);
 });
 
+app.get('/companies',cors(), (req, res, next) => {
+    const rawdata = fs.readFileSync('data/profiles.json');
+    let myArray = JSON.parse(rawdata);
+    let companies='{ "data": { "list": ['
+    myArray.data.list.forEach(function (value) {
+        companies+='"'+value.symbol+'",'
+      });
+    companies =companies.slice(0,companies.length-1)
+    companies +='] } }'
+    const data =JSON.parse(companies);
+    res.json(data);
+});
+
+
+
 
 app.get('/reports',cors(), (req, res, next) => {
     const rawdata = fs.readFileSync('data/reports.json');
