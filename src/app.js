@@ -3,19 +3,19 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express();
 const fs = require('fs');
-
+const cors = require('cors')
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.get('/profiles', (req, res, next) => {
+app.get('/profiles',cors(), (req, res, next) => {
     const rawdata = fs.readFileSync('data/profiles.json');
     let profiles = JSON.parse(rawdata);
     res.json(profiles);
 });
 
 
-app.get('/reports', (req, res, next) => {
+app.get('/reports',cors(), (req, res, next) => {
     const rawdata = fs.readFileSync('data/reports.json');
     let reports = JSON.parse(rawdata);
     res.json(reports);
